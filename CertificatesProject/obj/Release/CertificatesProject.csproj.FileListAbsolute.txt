@@ -1,0 +1,13 @@
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\CertificatesProject.exe.config
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\CertificatesProject.exe
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\CertificatesProject.pdb
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\MailKit.dll
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\MimeKit.dll
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\BouncyCastle.Crypto.xml
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\MailKit.xml
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\MimeKit.xml
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\obj\Release\CertificatesProject.csproj.CoreCompileInputs.cache
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\obj\Release\CertificatesProject.csproj.CopyComplete
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\obj\Release\CertificatesProject.exe
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\obj\Release\CertificatesProject.pdb

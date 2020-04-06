@@ -1,0 +1,14 @@
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Debug\CertificatesProject.exe.config
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Debug\CertificatesProject.exe
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Debug\CertificatesProject.pdb
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\obj\Debug\CertificatesProject.csprojAssemblyReference.cache
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\obj\Debug\CertificatesProject.csproj.CoreCompileInputs.cache
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\obj\Debug\CertificatesProject.exe
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\obj\Debug\CertificatesProject.pdb
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Debug\MailKit.dll
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Debug\MimeKit.dll
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Debug\MailKit.xml
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Debug\MimeKit.xml
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\obj\Debug\CertificatesProject.csproj.CopyComplete
