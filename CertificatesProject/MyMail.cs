@@ -67,6 +67,7 @@ namespace CertificatesProject
 			{
 
 				Console.WriteLine("Error: "+e.Message);
+				certificate.Sent = false;
 				return false;
 
 			}
@@ -95,9 +96,10 @@ namespace CertificatesProject
 
 			StringBuilder stb = new StringBuilder();
 
+
 			stb.AppendFormat(File.ReadAllText(htmlFilePath), course, imagetwitter.ContentId, imagelinkedinr.ContentId, imagetecnofor.ContentId);
 
-			Console.WriteLine(stb.ToString());
+			//Console.WriteLine(stb.ToString());
 			return stb.ToString();
 
 		}

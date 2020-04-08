@@ -28,6 +28,8 @@ namespace CertificatesProject
 
         private string modality;
 
+        private bool sent = true;
+
         public string Name { get => name; set => name = value; }
         public string Course { get => course; set => course = value; }
         public DateTime Dateini { get => dateini; set => dateini = value; }
@@ -39,6 +41,7 @@ namespace CertificatesProject
         public string Certificatepathpdf_eng { get => certificatepathpdf_eng; set => certificatepathpdf_eng = value; }
         public string Certificatepathpdf_esp { get => certificatepathpdf_esp; set => certificatepathpdf_esp = value; }
         public string Modality { get => modality; set => modality = value; }
+        public bool Sent { get => sent; set => sent = value; }
 
         public override string ToString()
         {

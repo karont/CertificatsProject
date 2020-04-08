@@ -20,6 +20,7 @@ namespace CertificatesProject
 
             if (parameters.Templatepath_esp != "")
             {
+                Console.WriteLine("Creating pdf esp");
                 certificate.Certificatepathpdf_esp = createCert(parameters.Templatepath_esp, parameters.Pdfpath, parameters.Docpath, certificate, new CultureInfo("es-ES"), "esp");
             }      
 
@@ -39,84 +40,102 @@ namespace CertificatesProject
             Document worddoc = new Document();
             Document worddoctemplate = new Document();
 
-            worddoc = wordapp.Documents.Add(ref oTemplatePath, ref oMissing, ref oMissing, ref oMissing);
-
-
-            foreach (Field mymergefield in worddoc.Fields)
+            try
             {
+                worddoc = wordapp.Documents.Add(ref oTemplatePath, ref oMissing, ref oMissing, ref oMissing);
 
 
-                Range rngFieldCode = mymergefield.Code;
-
-                String fieldText = rngFieldCode.Text;
-
-
-                if (fieldText.StartsWith(" MERGEFIELD"))
+                foreach (Field mymergefield in worddoc.Fields)
                 {
 
-                    Int32 endMerge = fieldText.IndexOf("\\");
 
-                    Int32 fieldNameLength = fieldText.Length - endMerge;
+                    Range rngFieldCode = mymergefield.Code;
 
-                    String fieldName = fieldText.Substring(11, endMerge - 11);
-
-                    fieldName = fieldName.Trim();
+                    String fieldText = rngFieldCode.Text;
 
 
-                    switch (fieldName)
+                    if (fieldText.StartsWith(" MERGEFIELD"))
                     {
-                        case "name":
-                            mymergefield.Select();
-                            wordapp.Selection.TypeText(certificate.Name);
-                            break;
 
-                        case "course":
-                            mymergefield.Select();
-                            wordapp.Selection.TypeText(certificate.Course);
-                            break;
+                        Int32 endMerge = fieldText.IndexOf("\\");
 
-                        case "dateini":
-                            mymergefield.Select();
-                            wordapp.Selection.TypeText(certificate.Dateini.ToString("dd MMMM yyyy", mycultureinfot));
-                            break;
+                        Int32 fieldNameLength = fieldText.Length - endMerge;
 
-                        case "dateend":
-                            mymergefield.Select();
-                            wordapp.Selection.TypeText(certificate.Dateend.ToString("dd MMMM yyyy", mycultureinfot));
-                            break;
+                        String fieldName = fieldText.Substring(11, endMerge - 11);
 
-                        case "hours":
-                            mymergefield.Select();
-                            wordapp.Selection.TypeText(certificate.Hours);
-                            break;
+                        fieldName = fieldName.Trim();
 
-                        case "date":
-                            mymergefield.Select();
-                            wordapp.Selection.TypeText(certificate.Date.ToString("dd MMMM yyyy", mycultureinfot));
-                            break;
 
-                        case "modality":
-                            mymergefield.Select();
-                            wordapp.Selection.TypeText(certificate.Modality);
-                            break;
-                        default:
-                            break;
+                        switch (fieldName)
+                        {
+                            case "name":
+                                mymergefield.Select();
+                                wordapp.Selection.TypeText(certificate.Name);
+                                break;
+
+                            case "course":
+                                mymergefield.Select();
+                                wordapp.Selection.TypeText(certificate.Course);
+                                break;
+
+                            case "dateini":
+                                mymergefield.Select();
+                                wordapp.Selection.TypeText(certificate.Dateini.ToString("dd MMMM yyyy", mycultureinfot));
+                                break;
+
+                            case "dateend":
+                                mymergefield.Select();
+                                wordapp.Selection.TypeText(certificate.Dateend.ToString("dd MMMM yyyy", mycultureinfot));
+                                break;
+
+                            case "hours":
+                                mymergefield.Select();
+                                wordapp.Selection.TypeText(certificate.Hours);
+                                break;
+
+                            case "date":
+                                mymergefield.Select();
+                                wordapp.Selection.TypeText(certificate.Date.ToString("dd MMMM yyyy", mycultureinfot));
+                                break;
+
+                            case "modality":
+                                mymergefield.Select();
+                                wordapp.Selection.TypeText(certificate.Modality);
+                                break;
+                            default:
+                                break;
+                        }
+
                     }
 
                 }
+                StringBuilder pdfpathc = new StringBuilder();
+                pdfpathc.AppendFormat(pdfpath + "{0}_{1}.pdf", certificate.Name, prefix);
+                
+                worddoc.SaveAs(docpath);
+                //wordApp.Documents.Open("C:\\Users\\aquesada\\Proyectos\\.NET\\Project1\\Project1\\doc\\myfile.doc");
+                worddoc.ExportAsFixedFormat(pdfpathc.ToString(), WdExportFormat.wdExportFormatPDF, false, WdExportOptimizeFor.wdExportOptimizeForOnScreen,
+                        WdExportRange.wdExportAllDocument, 1, 1, WdExportItem.wdExportDocumentContent, true, true,
+                        WdExportCreateBookmarks.wdExportCreateHeadingBookmarks, true, true, false, ref oMissing);
+                worddoc.Close();
+                wordapp.Application.Quit();
 
+                Console.WriteLine("Created pdf");
+                return pdfpathc.ToString();
+
+                
             }
-            StringBuilder pdfpathc = new StringBuilder();
-            pdfpathc.AppendFormat(pdfpath + "{0}_{1}.pdf", certificate.Name,prefix);
-            worddoc.SaveAs(docpath);
-            //wordApp.Documents.Open("C:\\Users\\aquesada\\Proyectos\\.NET\\Project1\\Project1\\doc\\myfile.doc");
-            worddoc.ExportAsFixedFormat(pdfpathc.ToString(), WdExportFormat.wdExportFormatPDF, false, WdExportOptimizeFor.wdExportOptimizeForOnScreen,
-                    WdExportRange.wdExportAllDocument, 1, 1, WdExportItem.wdExportDocumentContent, true, true,
-                    WdExportCreateBookmarks.wdExportCreateHeadingBookmarks, true, true, false, ref oMissing);
-            worddoc.Close();
-            wordapp.Application.Quit();
 
-            return pdfpathc.ToString();
+            catch (Exception e)
+            {
+                worddoc.Close();
+                wordapp.Application.Quit();
+                Console.WriteLine("Created pdf FAIL: "+e.Message);
+
+                certificate.Sent = false;
+                return "";
+            }
+           
         }
 
 
