@@ -13,6 +13,7 @@ namespace CertificatesProject
 
         public static List<Certificate> readCsv(string path)
         {
+            bool fistrow = true;
             List<Certificate> list = new List<Certificate>();
             Certificate certificate;
             using (var reader = new StreamReader(path))
@@ -22,19 +23,30 @@ namespace CertificatesProject
                 
                 while (!reader.EndOfStream)
                 {
-                    var line = reader.ReadLine();
-                    var values = line.Split(';');
+                    if(fistrow)
+                    {
+                        var line = reader.ReadLine();
+                        fistrow = false;
+                    }
 
-                    certificate = new Certificate();
-                    certificate.Name = (String)values[0];
-                    certificate.Course = (String)values[1];
-                    certificate.Dateini = DateTime.Parse((String)values[2], mycultureinfotesp);
-                    certificate.Dateend = DateTime.Parse((String)values[3], mycultureinfotesp);
-                    certificate.Hours = (String)values[4];
-                    certificate.Date = DateTime.Parse((String)values[5], mycultureinfotesp);
-                    certificate.Email = (String)values[6];
+                    else
+                    {
+                        var line = reader.ReadLine();
+                        var values = line.Split(';');
 
-                    list.Add(certificate);
+                        certificate = new Certificate();
+                        certificate.Name = (String)values[0];
+                        certificate.Course = (String)values[1];
+                        certificate.Modality = (String)values[2];
+                        certificate.Dateini = DateTime.Parse((String)values[3], mycultureinfotesp);
+                        certificate.Dateend = DateTime.Parse((String)values[4], mycultureinfotesp);
+                        certificate.Hours = (String)values[5];
+                        certificate.Date = DateTime.Parse((String)values[6], mycultureinfotesp);
+                        certificate.Email = (String)values[7];
+
+                        list.Add(certificate);
+                    }
+                    
                 }
 
             }

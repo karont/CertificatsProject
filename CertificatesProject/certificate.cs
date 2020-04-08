@@ -26,6 +26,8 @@ namespace CertificatesProject
 
         private string certificatepathpdf_esp;
 
+        private string modality;
+
         public string Name { get => name; set => name = value; }
         public string Course { get => course; set => course = value; }
         public DateTime Dateini { get => dateini; set => dateini = value; }
@@ -36,7 +38,7 @@ namespace CertificatesProject
         public string Email { get => email; set => email = value; }
         public string Certificatepathpdf_eng { get => certificatepathpdf_eng; set => certificatepathpdf_eng = value; }
         public string Certificatepathpdf_esp { get => certificatepathpdf_esp; set => certificatepathpdf_esp = value; }
-
+        public string Modality { get => modality; set => modality = value; }
 
         public override string ToString()
         {
@@ -50,6 +52,8 @@ namespace CertificatesProject
             st.AppendFormat("    Dateini: {0} ", dateini);
             st.AppendLine("");
             st.AppendFormat("    Dateend: {0}", dateend);
+            st.AppendLine("");
+            st.AppendFormat("    Modality: {0}", Modality);
             st.AppendLine("");
             st.AppendFormat("    Hours: {0}", hours);
             st.AppendLine("");

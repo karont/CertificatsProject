@@ -7,26 +7,26 @@ using Microsoft.Office.Interop.Word;
 using System.Globalization;
 namespace CertificatesProject
 {
-    static class DocCertificate
+    class PdfCertificate
     {
-        public static bool createCertificate(string templatepath_esp,string templatepath_eng, string pdfpath, Certificate certificate)
+        public bool createCertificate( Certificate certificate)
         {
 
+            Parameters parameters = ParameterSingleton.Parameters;
+            //if(parameters.Templatepath_emg != "")
+            //{
+            //    certificate.Certificatepathpdf_eng = createCert(parameters.Templatepath_esp, parameters.Pdfpath, parameters.Docpath, certificate, new CultureInfo("en-US"), "eng");
+            //}
 
-            if(templatepath_eng != "")
+            if (parameters.Templatepath_esp != "")
             {
-                certificate.Certificatepathpdf_eng = createCert(templatepath_eng, pdfpath, certificate, new CultureInfo("en-US"), "eng");
-            }
-           
-            if(templatepath_esp != "")
-            {
-                certificate.Certificatepathpdf_esp = createCert(templatepath_esp, pdfpath, certificate, new CultureInfo("es-ES"), "esp");
+                certificate.Certificatepathpdf_esp = createCert(parameters.Templatepath_esp, parameters.Pdfpath, parameters.Docpath, certificate, new CultureInfo("es-ES"), "esp");
             }      
 
             return true;
         }
 
-        private static string createCert(string template, string pdfpath, Certificate certificate, CultureInfo mycultureinfot, string prefix)
+        private string createCert(string template, string pdfpath,string docpath, Certificate certificate, CultureInfo mycultureinfot, string prefix)
         {
 
             Object oMissing = System.Reflection.Missing.Value;
@@ -95,6 +95,10 @@ namespace CertificatesProject
                             wordapp.Selection.TypeText(certificate.Date.ToString("dd MMMM yyyy", mycultureinfot));
                             break;
 
+                        case "modality":
+                            mymergefield.Select();
+                            wordapp.Selection.TypeText(certificate.Modality);
+                            break;
                         default:
                             break;
                     }
@@ -104,7 +108,7 @@ namespace CertificatesProject
             }
             StringBuilder pdfpathc = new StringBuilder();
             pdfpathc.AppendFormat(pdfpath + "{0}_{1}.pdf", certificate.Name,prefix);
-            worddoc.SaveAs(@"C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\doc\myfile.doc");
+            worddoc.SaveAs(docpath);
             //wordApp.Documents.Open("C:\\Users\\aquesada\\Proyectos\\.NET\\Project1\\Project1\\doc\\myfile.doc");
             worddoc.ExportAsFixedFormat(pdfpathc.ToString(), WdExportFormat.wdExportFormatPDF, false, WdExportOptimizeFor.wdExportOptimizeForOnScreen,
                     WdExportRange.wdExportAllDocument, 1, 1, WdExportItem.wdExportDocumentContent, true, true,

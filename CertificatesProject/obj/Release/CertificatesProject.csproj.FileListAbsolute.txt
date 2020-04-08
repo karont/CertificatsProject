@@ -11,3 +11,11 @@ C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\obj\Rel
 C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\obj\Release\CertificatesProject.csproj.CopyComplete
 C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\obj\Release\CertificatesProject.exe
 C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\obj\Release\CertificatesProject.pdb
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\resources\img\linkedin.png
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\resources\img\tecnofor.png
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\resources\img\twitter.png
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\resources\mymail.html
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\csv\certificados.csv
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\template\Cert. asistencia Tecnofor Plantilla GENERAL v5 template.dotx
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\doc\myfile.doc
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\obj\Release\CertificatesProject.csprojAssemblyReference.cache

@@ -9,28 +9,26 @@ namespace CertificatesProject
 {
     class Aplication
     {
-
-        private string pdfpath = System.Configuration.ConfigurationManager.AppSettings["pdfpath"];
-
-        private string templatepath_esp = System.Configuration.ConfigurationManager.AppSettings["template_esp"];
-
-        private string templatepath_eng = System.Configuration.ConfigurationManager.AppSettings["template_eng"];
-
-        private string csvpath = System.Configuration.ConfigurationManager.AppSettings["csvpath"];
+        
         public void Run()
         {
 
-
             Console.WriteLine("Starting app");
 
-            List<Certificate> listcertificates = CsvCertificate.readCsv(@csvpath);
+            Parameters parameter = ParameterSingleton.Parameters;
+            List<Certificate> listcertificates = CsvCertificate.readCsv(parameter.Csvpath);
 
+            MyMail mail = new MyMail();
+            PdfCertificate pdfcertificate = new PdfCertificate();
             foreach (Certificate certificate in listcertificates)
             {
-                DocCertificate.createCertificate(@templatepath_esp, @templatepath_eng, @pdfpath, certificate);
+                pdfcertificate.createCertificate(certificate);
                 Console.WriteLine(certificate.ToString());
-                SendMail.send(certificate);
+                mail.send(certificate);
             }
+
+            Console.WriteLine("Finish app, presh any key to close");
+            Console.ReadLine();
           
         }
     }
