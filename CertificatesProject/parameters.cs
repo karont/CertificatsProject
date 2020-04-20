@@ -8,24 +8,29 @@ namespace CertificatesProject
 {
     class Parameters
     {
-		private string emailfrom = System.Configuration.ConfigurationManager.AppSettings["emailfrom"];
-		private string smtp = System.Configuration.ConfigurationManager.AppSettings["smtp"];
-		private string smtpuser = System.Configuration.ConfigurationManager.AppSettings["smtpuser"];
-		private string smtppassword = System.Configuration.ConfigurationManager.AppSettings["smtppassword"];
-		private string mailpath = System.Configuration.ConfigurationManager.AppSettings["mailpath"];
-		private string imgtwitterpath = System.Configuration.ConfigurationManager.AppSettings["imgtwitterpath"];
-		private string imglinkedinpath = System.Configuration.ConfigurationManager.AppSettings["imglinkedinpath"];
-		private string imgtecnoforpath = System.Configuration.ConfigurationManager.AppSettings["imgtecnoforpath"];
+		private string emailfrom;
+		private string smtp;
+		private string smtpuser;
+		private string smtppassword;
+		private string mailpath;
+		private string imgtwitterpath;
+		private string imglinkedinpath;
+		private string imgtecnoforpath;
 
-		private string pdfpath = System.Configuration.ConfigurationManager.AppSettings["pdfpath"];
+		private string pdfpath;
 
-		private string docpath = System.Configuration.ConfigurationManager.AppSettings["docpath"];
+		private string docpath;
 
-		private string templatepath_esp = System.Configuration.ConfigurationManager.AppSettings["template_esp"];
+		private string templatepath_esp;
 
-		private string templatepath_eng = System.Configuration.ConfigurationManager.AppSettings["template_eng"];
+		private string templatepath_eng;
 
-		private string csvpath = System.Configuration.ConfigurationManager.AppSettings["csvpath"];
+		private string csvpath;
+
+		private string log;
+
+		private string signpath;
+
 		public string Emailfrom { get => emailfrom;}
 		public string Smtp { get => smtp; }
 		public string Smtpuser { get => smtpuser; }
@@ -39,7 +44,8 @@ namespace CertificatesProject
 		public string Templatepath_esp { get => templatepath_esp; }
 		public string Templatepath_eng { get => templatepath_eng; }
 		public string Csvpath { get => csvpath; }
-
+		public string Log { get => log; }
+		public string Signpath { get => signpath; }
 
 		public Parameters()
 		{
@@ -64,8 +70,11 @@ namespace CertificatesProject
 			templatepath_eng = executingpath + @System.Configuration.ConfigurationManager.AppSettings["template_eng"];
 
 			csvpath = executingpath + @System.Configuration.ConfigurationManager.AppSettings["csvpath"];
+			log = executingpath + @System.Configuration.ConfigurationManager.AppSettings["outputlog"];
 
-	}
+			signpath = executingpath + @System.Configuration.ConfigurationManager.AppSettings["signpath"];
+
+		}
 
 		
 	}

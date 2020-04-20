@@ -80,7 +80,7 @@ namespace CertificatesProject
 
                             case "dateini":
                                 mymergefield.Select();
-                                wordapp.Selection.TypeText(certificate.Dateini.ToString("dd MMMM yyyy", mycultureinfot));
+                                wordapp.Selection.TypeText(certificate.Dateini.ToString("dd MMMM", mycultureinfot));
                                 break;
 
                             case "dateend":

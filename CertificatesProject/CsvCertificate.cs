@@ -16,7 +16,7 @@ namespace CertificatesProject
             bool fistrow = true;
             List<Certificate> list = new List<Certificate>();
             Certificate certificate;
-            using (var reader = new StreamReader(path))
+            using (var reader = new StreamReader(path,Encoding.Default))
             {
 
                 CultureInfo mycultureinfotesp = new CultureInfo("es-ES");
@@ -26,7 +26,12 @@ namespace CertificatesProject
                     if(fistrow)
                     {
                         var line = reader.ReadLine();
-                        fistrow = false;
+                        var values = line.Split(';');
+
+                        if (checkFirstRow(values))
+                            fistrow = false;
+                        else
+                            return list;
                     }
 
                     else
@@ -45,6 +50,7 @@ namespace CertificatesProject
                         certificate.Email = (String)values[7];
 
                         list.Add(certificate);
+                        
                     }
                     
                 }
@@ -52,6 +58,38 @@ namespace CertificatesProject
             }
 
             return list;
+        }
+
+        private static bool checkFirstRow (string[] values)
+        {
+
+            if ((String)values[0].ToLower() != "name")
+                return false;
+
+            if ((String)values[1].ToLower() != "course")
+                return false;
+
+            if ((String)values[2].ToLower() != "modality")
+                return false;
+
+            if ((String)values[3].ToLower() != "dateini")
+                return false;
+
+            if ((String)values[4].ToLower() != "dateend")
+                return false;
+
+            if ((String)values[5].ToLower() != "hours")
+                return false;
+
+            if ((String)values[6].ToLower() != "date")
+                return false;
+
+            if ((String)values[7].ToLower() != "email")
+                return false;
+
+
+
+            return true;
         }
     }
 }

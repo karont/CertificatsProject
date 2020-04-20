@@ -23,7 +23,7 @@ namespace CertificatesProject
 			var message = new MimeMessage();
 			message.From.Add(new MailboxAddress("Tecnofor", parameters.Emailfrom));
 			message.To.Add(new MailboxAddress(certificate.Name, certificate.Email));
-			message.Subject = "Certificate";
+			message.Subject = certificate.Course +" - Certificado de asistencia";
 
 			var builder = new BodyBuilder();
 
@@ -53,6 +53,7 @@ namespace CertificatesProject
 					// Note: only needed if the SMTP server requires authentication
 					client.Authenticate(parameters.Smtpuser, parameters.Smtppassword);
 
+					client.Timeout = 60000;
 					client.Send(message);
 					client.Disconnect(true);
 				}
