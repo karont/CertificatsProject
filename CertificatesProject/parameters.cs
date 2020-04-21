@@ -31,6 +31,7 @@ namespace CertificatesProject
 
 		private string signpath;
 
+		private string signpassword;
 		public string Emailfrom { get => emailfrom;}
 		public string Smtp { get => smtp; }
 		public string Smtpuser { get => smtpuser; }
@@ -46,7 +47,7 @@ namespace CertificatesProject
 		public string Csvpath { get => csvpath; }
 		public string Log { get => log; }
 		public string Signpath { get => signpath; }
-
+		public string Signpassword { get => signpassword; }
 		public Parameters()
 		{
 			string executingpath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
@@ -74,6 +75,7 @@ namespace CertificatesProject
 
 			signpath = executingpath + @System.Configuration.ConfigurationManager.AppSettings["signpath"];
 
+			signpassword = System.Configuration.ConfigurationManager.AppSettings["signpassword"];
 		}
 
 		

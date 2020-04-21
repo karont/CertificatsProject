@@ -15,7 +15,7 @@ namespace CertificatesProject
             List<Certificate> listcertificatesfails = new List<Certificate>();
             List<Certificate> listcertificates = CsvCertificate.readCsv(parameter.Csvpath);
 
-            PdfSI
+           
             if(listcertificates.Count >= 1)
             {
                 MyMail mail = new MyMail();

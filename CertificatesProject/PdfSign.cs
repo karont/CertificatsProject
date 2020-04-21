@@ -4,21 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GemBox.Pdf;
-
 namespace CertificatesProject
 {
-    class PdfSign
+    static class PdfSign
     {
-      
-        public void sign()
+        public static void sign(string pdfpath)
         {
+
             ComponentInfo.SetLicense("FREE-LIMITED-KEY");
 
             Parameters parameters = ParameterSingleton.Parameters;
-            using (var document = PdfDocument.Load(@"C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\pdf"))
+            using (var document = PdfDocument.Load(@pdfpath))
             {
                 // Add a visible signature field to the first page of the PDF document.
-                var signatureField = document.Form.Fields.AddSignature(document.Pages[0], 300, 500, 250, 50);
+                var signatureField = document.Form.Fields.AddSignature(document.Pages[0], 350, 300, 250, 50);
 
                 // Retrieve signature appearance settings to customize it.
                 var signatureAppearance = signatureField.Appearance;
@@ -31,12 +30,12 @@ namespace CertificatesProject
                 signatureAppearance.DateFormat = string.Empty;
 
                 // Initiate signing of a PDF file with the specified digital ID file and the password.
-                signatureField.Sign(parameters.Signpath, "GemBoxPassword");
+                signatureField.Sign(parameters.Signpath, parameters.Signpassword);
 
                 // Finish signing of a PDF file.
-                document.Save("Visible Digital Signature.pdf");
+    
+                document.Save();
             }
-
         }
     }
 }

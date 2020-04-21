@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Office.Interop.Word;
 using System.Globalization;
+
 namespace CertificatesProject
 {
     class PdfCertificate
@@ -120,6 +121,7 @@ namespace CertificatesProject
                 worddoc.Close();
                 wordapp.Application.Quit();
 
+                //PdfSign.sign(pdfpathc.ToString());
                 Console.WriteLine("Created pdf");
                 return pdfpathc.ToString();
 
