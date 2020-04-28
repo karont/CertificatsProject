@@ -121,7 +121,7 @@ namespace CertificatesProject
                 worddoc.Close();
                 wordapp.Application.Quit();
 
-                //PdfSign.sign(pdfpathc.ToString());
+                //PdfSign.sign(pdfpathc.ToString(), certificate.Date.ToString("dd MMMM yyyy", mycultureinfot));
                 Console.WriteLine("Created pdf");
                 return pdfpathc.ToString();
 

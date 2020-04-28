@@ -70,7 +70,7 @@ namespace CertificatesProject
             {
                 Console.WriteLine("There are errors in the input csv format!! The correct format is:");
                 Console.WriteLine("");
-                Console.WriteLine("name | course | modality | dateini | dateend | hours | date | email");
+                Console.WriteLine("name | course | modality | dateini | dateend | hours | email");
                 Console.WriteLine("");
             }
 

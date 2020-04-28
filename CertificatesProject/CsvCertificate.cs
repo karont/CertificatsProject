@@ -39,17 +39,19 @@ namespace CertificatesProject
                         var line = reader.ReadLine();
                         var values = line.Split(';');
 
-                        certificate = new Certificate();
-                        certificate.Name = (String)values[0];
-                        certificate.Course = (String)values[1];
-                        certificate.Modality = (String)values[2];
-                        certificate.Dateini = DateTime.Parse((String)values[3], mycultureinfotesp);
-                        certificate.Dateend = DateTime.Parse((String)values[4], mycultureinfotesp);
-                        certificate.Hours = (String)values[5];
-                        certificate.Date = DateTime.Parse((String)values[6], mycultureinfotesp);
-                        certificate.Email = (String)values[7];
-
-                        list.Add(certificate);
+                        if(((String)values[0]) != "")
+                        {
+                            certificate = new Certificate();
+                            certificate.Name = (String)values[0];
+                            certificate.Course = (String)values[1];
+                            certificate.Modality = (String)values[2];
+                            certificate.Dateini = DateTime.Parse((String)values[3], mycultureinfotesp);
+                            certificate.Dateend = DateTime.Parse((String)values[4], mycultureinfotesp);
+                            certificate.Hours = (String)values[5];
+                            certificate.Date = DateTime.Parse((String)values[4], mycultureinfotesp);
+                            certificate.Email = (String)values[6];
+                            list.Add(certificate);
+                        }
                         
                     }
                     
@@ -81,10 +83,10 @@ namespace CertificatesProject
             if ((String)values[5].ToLower() != "hours")
                 return false;
 
-            if ((String)values[6].ToLower() != "date")
-                return false;
+            //if ((String)values[6].ToLower() != "date")
+            //    return false;
 
-            if ((String)values[7].ToLower() != "email")
+            if ((String)values[6].ToLower() != "email")
                 return false;
 
 
