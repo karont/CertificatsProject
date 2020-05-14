@@ -18,4 +18,12 @@ C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Rel
 C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\csv\certificados.csv
 C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\template\Cert. asistencia Tecnofor Plantilla GENERAL v5 template.dotx
 C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\doc\myfile.doc
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\resources\mymail_eng.html
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\resources\Certif.TCNFR.pfx
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\resources\pdfsign.pfx
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\template\Cert. asistencia Tecnofor Plantilla GENERAL-inglés v3 template.dotx
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\GemBox.Document.dll
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\GemBox.Pdf.dll
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\GemBox.Document.xml
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\GemBox.Pdf.xml
 C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\obj\Release\CertificatesProject.csprojAssemblyReference.cache

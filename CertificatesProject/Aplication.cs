@@ -11,6 +11,26 @@ namespace CertificatesProject
 
             Console.WriteLine("Starting app");
 
+            Console.WriteLine("Select certificate language:");
+            Console.WriteLine("1 -> Spanish");
+            Console.WriteLine("2 -> English");
+
+            string selectlanguage = Console.ReadLine();
+
+            switch (selectlanguage)
+            {
+                case "2":
+                    Console.WriteLine("English selected");
+                    break;
+
+                case "1":
+                default:
+                    Console.WriteLine("Spanish selected");
+                    break;
+            }
+
+            
+
             Parameters parameter = ParameterSingleton.Parameters;
             List<Certificate> listcertificatesfails = new List<Certificate>();
             List<Certificate> listcertificates = CsvCertificate.readCsv(parameter.Csvpath);
@@ -26,12 +46,18 @@ namespace CertificatesProject
                     Console.WriteLine("New certificated");
                     Console.WriteLine(certificate.ToString());
 
-                    pdfcertificate.createCertificate(certificate);
+                    pdfcertificate.createCertificate(certificate, selectlanguage);
 
 
-                    if (certificate.Certificatepathpdf_esp != "")
+                    if (certificate.Certificatepathpdf_esp != null && certificate.Certificatepathpdf_esp != "")
                     {
-                        mail.send(certificate);
+                        mail.send(certificate, selectlanguage);
+
+                    }
+
+                    if (certificate.Certificatepathpdf_eng != null &&  certificate.Certificatepathpdf_eng != "")
+                    {
+                        mail.send(certificate, selectlanguage);
 
                     }
 
@@ -47,14 +73,24 @@ namespace CertificatesProject
 
                     Console.WriteLine("----" + certificatefail.Name);
 
-                    if (certificatefail.Certificatepathpdf_esp != "")
+                    if (certificatefail.Certificatepathpdf_esp != null &&  certificatefail.Certificatepathpdf_esp != "")
                     {
                         certificatefail.Sent = true;
-                        mail.send(certificatefail);
+                        mail.send(certificatefail, selectlanguage);
 
                         if (certificatefail.Sent) listcertificatesfails.Remove(certificatefail);
 
                     }
+
+                    if (certificatefail.Certificatepathpdf_eng != null && certificatefail.Certificatepathpdf_eng != "")
+                    {
+                        certificatefail.Sent = true;
+                        mail.send(certificatefail, selectlanguage);
+
+                        if (certificatefail.Sent) listcertificatesfails.Remove(certificatefail);
+
+                    }
+
                 }
                 Console.WriteLine("Fail List");
                 foreach (Certificate certificatefail in listcertificatesfails)

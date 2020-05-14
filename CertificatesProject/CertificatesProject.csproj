@@ -51,7 +51,9 @@
     <None Include="template\Cert. asistencia Tecnofor Plantilla GENERAL v5 template.dotx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="template\Cert. asistencia Tecnofor Plantilla GENERAL-inglés v3 template.dotx" />
+    <None Include="template\Cert. asistencia Tecnofor Plantilla GENERAL-inglés v3 template.dotx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aplication.cs" />
@@ -67,9 +69,6 @@
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
       <HintPath>..\packages\Portable.BouncyCastle.1.8.5\lib\net40\BouncyCastle.Crypto.dll</HintPath>
-    </Reference>
-    <Reference Include="GemBox.Document, Version=31.0.35.1175, Culture=neutral, PublicKeyToken=b1b72c69714d4847, processorArchitecture=MSIL">
-      <HintPath>..\packages\GemBox.Document.31.0.1175\lib\net35\GemBox.Document.dll</HintPath>
     </Reference>
     <Reference Include="GemBox.Pdf, Version=13.0.35.1100, Culture=neutral, PublicKeyToken=b1b72c69714d4847, processorArchitecture=MSIL">
       <HintPath>..\packages\GemBox.Pdf.13.0.1100\lib\net35\GemBox.Pdf.dll</HintPath>
@@ -106,6 +105,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="resources\mymail.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mymail_eng.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

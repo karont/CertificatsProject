@@ -13,6 +13,7 @@ namespace CertificatesProject
 		private string smtpuser;
 		private string smtppassword;
 		private string mailpath;
+		private string mailpath_eng;
 		private string imgtwitterpath;
 		private string imglinkedinpath;
 		private string imgtecnoforpath;
@@ -48,6 +49,8 @@ namespace CertificatesProject
 		public string Log { get => log; }
 		public string Signpath { get => signpath; }
 		public string Signpassword { get => signpassword; }
+		public string Mailpath_eng { get => mailpath_eng; }
+
 		public Parameters()
 		{
 			string executingpath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
@@ -58,6 +61,7 @@ namespace CertificatesProject
 			smtpuser = System.Configuration.ConfigurationManager.AppSettings["smtpuser"];
 			smtppassword = System.Configuration.ConfigurationManager.AppSettings["smtppassword"];
 			mailpath = executingpath + @System.Configuration.ConfigurationManager.AppSettings["mailpath"];
+			mailpath_eng = executingpath + @System.Configuration.ConfigurationManager.AppSettings["mailpatheng"];
 			imgtwitterpath = executingpath + @System.Configuration.ConfigurationManager.AppSettings["imgtwitterpath"];
 			imglinkedinpath = executingpath + @System.Configuration.ConfigurationManager.AppSettings["imglinkedinpath"];
 			imgtecnoforpath = executingpath + @System.Configuration.ConfigurationManager.AppSettings["imgtecnoforpath"];

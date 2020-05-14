@@ -15,7 +15,7 @@ namespace CertificatesProject
      class MyMail
     {
 		
-		public bool send(Certificate certificate)
+		public bool send(Certificate certificate, string selectlanguage)
         {
 			Parameters parameters = ParameterSingleton.Parameters;
 
@@ -23,25 +23,32 @@ namespace CertificatesProject
 			var message = new MimeMessage();
 			message.From.Add(new MailboxAddress("Tecnofor", parameters.Emailfrom));
 			message.To.Add(new MailboxAddress(certificate.Name, certificate.Email));
-			message.Subject = certificate.Course +" - Certificado de asistencia";
 
+			string subject = "";
+			string mailpath = "";
+			string certificatepath = "";
+
+			switch(selectlanguage)
+			{
+				case "2":
+					subject = certificate.Course + " - Attendance certificate";
+					mailpath = parameters.Mailpath_eng;
+					certificatepath = certificate.Certificatepathpdf_eng;
+					break;
+				case "1":
+				default:
+					subject = certificate.Course + " - Certificado de asistencia";
+					mailpath = parameters.Mailpath;
+					certificatepath = certificate.Certificatepathpdf_esp;
+					break;
+			}
+			message.Subject = subject;
 			var builder = new BodyBuilder();
-
-			//StringBuilder stb = new StringBuilder();
-
-			//stb.AppendLine("Estimado alumno,");
-			//stb.AppendLine("Tecnofor tiene el placer de enviarle adjunto a este email su Certificado de asistencia al curso ");
-			//stb.AppendFormat("<b>{0}</b>",certificate.Course);
-			//stb.AppendLine("¡Esperamos volver a verle pronto en nuestras formaciones!");
-			//stb.AppendLine("Saludos");
-
-
-
-
-			builder.HtmlBody = makeHTMLBody(certificate.Course, builder, parameters);
+			builder.HtmlBody = makeHTMLBody(certificate.Course, builder, mailpath, parameters.Imgtecnoforpath, parameters.Imgtwitterpath, parameters.Imglinkedinpath);
 
 			//builder.Attachments.Add(certificate.Certificatepathpdf_eng);
-			builder.Attachments.Add(certificate.Certificatepathpdf_esp);
+			builder.Attachments.Add(certificatepath);
+
 
 			message.Body = builder.ToMessageBody();
 			try
@@ -60,7 +67,7 @@ namespace CertificatesProject
 
 				Console.WriteLine("Send");
 				//File.Delete(certificate.Certificatepathpdf_eng);
-				File.Delete(certificate.Certificatepathpdf_esp);
+				File.Delete(certificatepath);
 				return true;
 			}
 
@@ -77,19 +84,17 @@ namespace CertificatesProject
         }
 
 
-		private string makeHTMLBody(string course, BodyBuilder builder, Parameters parameters)
+		private string makeHTMLBody(string course, BodyBuilder builder, string htmlFilePath, string pathtecnofor, string pathtwitter, string pathtlinkedin)
 		{
-			string htmlFilePath = parameters.Mailpath;
-
-			var pathtecnofor = parameters.Imgtecnoforpath;
+			
 			var imagetecnofor = builder.LinkedResources.Add(pathtecnofor);
 			imagetecnofor.ContentId = MimeUtils.GenerateMessageId();
 
-			var pathtwitter = parameters.Imgtwitterpath;
+			;
 			var imagetwitter = builder.LinkedResources.Add(pathtwitter);
 			imagetwitter.ContentId = MimeUtils.GenerateMessageId();
 
-			var pathtlinkedin = parameters.Imglinkedinpath;
+			
 			var imagelinkedinr = builder.LinkedResources.Add(pathtlinkedin);
 			imagelinkedinr.ContentId = MimeUtils.GenerateMessageId();
 

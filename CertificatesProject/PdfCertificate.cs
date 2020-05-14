@@ -10,20 +10,41 @@ namespace CertificatesProject
 {
     class PdfCertificate
     {
-        public bool createCertificate( Certificate certificate)
+        public bool createCertificate( Certificate certificate, string selectlanguage)
         {
 
             Parameters parameters = ParameterSingleton.Parameters;
-            //if(parameters.Templatepath_emg != "")
-            //{
-            //    certificate.Certificatepathpdf_eng = createCert(parameters.Templatepath_esp, parameters.Pdfpath, parameters.Docpath, certificate, new CultureInfo("en-US"), "eng");
-            //}
 
-            if (parameters.Templatepath_esp != "")
+            switch (selectlanguage)
             {
-                Console.WriteLine("Creating pdf esp");
-                certificate.Certificatepathpdf_esp = createCert(parameters.Templatepath_esp, parameters.Pdfpath, parameters.Docpath, certificate, new CultureInfo("es-ES"), "esp");
-            }      
+                case "2":
+                    if (parameters.Templatepath_eng != "")
+                    {
+                        Console.WriteLine("Creating pdf eng");
+                        certificate.Certificatepathpdf_eng = createCert(parameters.Templatepath_eng, parameters.Pdfpath, parameters.Docpath, certificate, new CultureInfo("en-US"), "eng");
+                    }
+                    break;
+
+                case "1":
+                    if (parameters.Templatepath_esp != "")
+                    {
+                        Console.WriteLine("Creating pdf esp");
+                        certificate.Certificatepathpdf_esp = createCert(parameters.Templatepath_esp, parameters.Pdfpath, parameters.Docpath, certificate, new CultureInfo("es-ES"), "esp");
+                    }
+                    break;
+
+                default:
+                    if (parameters.Templatepath_esp != "")
+                    {
+                        Console.WriteLine("Creating pdf esp");
+                        certificate.Certificatepathpdf_esp = createCert(parameters.Templatepath_esp, parameters.Pdfpath, parameters.Docpath, certificate, new CultureInfo("es-ES"), "esp");
+                    }
+                    break;
+            }
+            
+           
+
+                
 
             return true;
         }
