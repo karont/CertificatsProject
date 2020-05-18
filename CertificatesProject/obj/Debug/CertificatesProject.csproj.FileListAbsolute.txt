@@ -21,8 +21,6 @@ C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Deb
 C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Debug\GemBox.Pdf.dll
 C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Debug\GemBox.Pdf.xml
 C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Debug\resources\pdfsign.pfx
-C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Debug\resources\Certif.TCNFR.pfx
 C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\obj\Debug\CertificatesProject.csprojAssemblyReference.cache
-C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Debug\GemBox.Document.dll
-C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Debug\GemBox.Document.xml
 C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Debug\template\Cert. asistencia Tecnofor Plantilla GENERAL-inglés v3 template.dotx
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Debug\resources\mymail_eng.html

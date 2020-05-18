@@ -42,9 +42,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
-    <None Include="resources\Certif.TCNFR.pfx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="resources\pdfsign.pfx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

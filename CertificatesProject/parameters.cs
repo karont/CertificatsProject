@@ -77,9 +77,6 @@ namespace CertificatesProject
 			csvpath = executingpath + @System.Configuration.ConfigurationManager.AppSettings["csvpath"];
 			log = executingpath + @System.Configuration.ConfigurationManager.AppSettings["outputlog"];
 
-			signpath = executingpath + @System.Configuration.ConfigurationManager.AppSettings["signpath"];
-
-			signpassword = System.Configuration.ConfigurationManager.AppSettings["signpassword"];
 		}
 
 		

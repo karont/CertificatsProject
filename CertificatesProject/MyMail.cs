@@ -55,10 +55,10 @@ namespace CertificatesProject
 			{
 				using (var client = new SmtpClient())
 				{
-					client.Connect(parameters.Smtp, 587, SecureSocketOptions.StartTls);
+					client.Connect(parameters.Smtp, 465, SecureSocketOptions.SslOnConnect);
 
 					// Note: only needed if the SMTP server requires authentication
-					client.Authenticate(parameters.Smtpuser, parameters.Smtppassword);
+					client.Authenticate(@parameters.Smtpuser, @parameters.Smtppassword);
 
 					client.Timeout = 60000;
 					client.Send(message);
