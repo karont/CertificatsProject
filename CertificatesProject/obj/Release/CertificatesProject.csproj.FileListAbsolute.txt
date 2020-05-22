@@ -23,3 +23,4 @@ C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Rel
 C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\template\Cert. asistencia Tecnofor Plantilla GENERAL-inglés v3 template.dotx
 C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\GemBox.Pdf.dll
 C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\bin\Release\GemBox.Pdf.xml
+C:\Users\aquesada\Proyectos\.NET\CertificatesProject\CertificatesProject\obj\Release\CertificatesProject.csprojAssemblyReference.cache
