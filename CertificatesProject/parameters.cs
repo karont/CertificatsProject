@@ -30,9 +30,6 @@ namespace CertificatesProject
 
 		private string log;
 
-		private string signpath;
-
-		private string signpassword;
 		public string Emailfrom { get => emailfrom;}
 		public string Smtp { get => smtp; }
 		public string Smtpuser { get => smtpuser; }
@@ -47,8 +44,6 @@ namespace CertificatesProject
 		public string Templatepath_eng { get => templatepath_eng; }
 		public string Csvpath { get => csvpath; }
 		public string Log { get => log; }
-		public string Signpath { get => signpath; }
-		public string Signpassword { get => signpassword; }
 		public string Mailpath_eng { get => mailpath_eng; }
 
 		public Parameters()

@@ -11,18 +11,18 @@ namespace CertificatesProject
         public static void sign(string pdfpath, string date)
         {
 
-            ComponentInfo.SetLicense("FREE-LIMITED-KEY");
+            //ComponentInfo.SetLicense("FREE-LIMITED-KEY");
 
-            Parameters parameters = ParameterSingleton.Parameters;
-            using (var document = PdfDocument.Load(@pdfpath))
-            {
-                var signatureField = document.Form.Fields.AddSignature();
+            //Parameters parameters = ParameterSingleton.Parameters;
+            //using (var document = PdfDocument.Load(@pdfpath))
+            //{
+            //    var signatureField = document.Form.Fields.AddSignature();
 
-                var signatureAppearance = signatureField.Appearance;
-                signatureField.Sign(parameters.Signpath, parameters.Signpassword);
+            //    var signatureAppearance = signatureField.Appearance;
+            //    signatureField.Sign(parameters.Signpath, parameters.Signpassword);
 
-                document.Save();
-            }
+            //    document.Save();
+            //}
         }
     }
 }

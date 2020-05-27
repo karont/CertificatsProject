@@ -20,7 +20,8 @@ namespace CertificatesProject
             {
 
                 CultureInfo mycultureinfotesp = new CultureInfo("es-ES");
-                
+
+                List<string> firstrow = new List<string>();
                 while (!reader.EndOfStream)
                 {
                     if(fistrow)
@@ -28,10 +29,10 @@ namespace CertificatesProject
                         var line = reader.ReadLine();
                         var values = line.Split(';');
 
-                        if (checkFirstRow(values))
-                            fistrow = false;
-                        else
-                            return list;
+
+                        firstrow = setFirstRow(values);
+                        fistrow = false;
+ 
                     }
 
                     else
@@ -42,14 +43,20 @@ namespace CertificatesProject
                         if(((String)values[0]) != "")
                         {
                             certificate = new Certificate();
-                            certificate.Name = (String)values[0];
-                            certificate.Course = (String)values[1];
-                            certificate.Modality = (String)values[2];
-                            certificate.Dateini = DateTime.Parse((String)values[3], mycultureinfotesp);
-                            certificate.Dateend = DateTime.Parse((String)values[4], mycultureinfotesp);
-                            certificate.Hours = (String)values[5];
-                            certificate.Date = DateTime.Parse((String)values[4], mycultureinfotesp);
-                            certificate.Email = (String)values[6];
+                            int i = 0;
+                            foreach (string value in values)
+                            {
+                                certificate.Attributes.Add(firstrow[i],value);
+                                i++;
+                            }
+                            //certificate.Name = (String)values[0];
+                            //certificate.Course = (String)values[1];
+                            //certificate.Modality = (String)values[2];
+                            //certificate.Dateini = DateTime.Parse((String)values[3], mycultureinfotesp);
+                            //certificate.Dateend = DateTime.Parse((String)values[4], mycultureinfotesp);
+                            //certificate.Hours = (String)values[5];
+                            //certificate.Date = DateTime.Parse((String)values[4], mycultureinfotesp);
+                            //certificate.Email = (String)values[6];
                             list.Add(certificate);
                         }
                         
@@ -62,6 +69,17 @@ namespace CertificatesProject
             return list;
         }
 
+        private static List<string> setFirstRow(string[] values)
+        {
+            List<string> firstrow = new List<string>();
+
+            foreach(string value in values)
+            {
+                firstrow.Add(value.ToLower());
+            }
+
+            return firstrow;
+        }
         private static bool checkFirstRow (string[] values)
         {
 

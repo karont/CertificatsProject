@@ -66,7 +66,7 @@ namespace CertificatesProject
             {
                 worddoc = wordapp.Documents.Add(ref oTemplatePath, ref oMissing, ref oMissing, ref oMissing);
 
-
+                CultureInfo mycultureinfotesp = new CultureInfo("es-ES");
                 foreach (Field mymergefield in worddoc.Fields)
                 {
 
@@ -85,54 +85,67 @@ namespace CertificatesProject
 
                         String fieldName = fieldText.Substring(11, endMerge - 11);
 
-                        fieldName = fieldName.Trim();
+                        fieldName = fieldName.Trim().ToLower();
 
+                        mymergefield.Select();
 
-                        switch (fieldName)
+                        string insertedvalue = "";
+                        if (fieldName.Contains("date"))
                         {
-                            case "name":
-                                mymergefield.Select();
-                                wordapp.Selection.TypeText(certificate.Name);
-                                break;
+                            insertedvalue =  DateTime.Parse(certificate.Attributes[fieldName], mycultureinfotesp).ToString("dd MMMM yyyy", mycultureinfot);
 
-                            case "course":
-                                mymergefield.Select();
-                                wordapp.Selection.TypeText(certificate.Course);
-                                break;
-
-                            case "dateini":
-                                mymergefield.Select();
-                                wordapp.Selection.TypeText(certificate.Dateini.ToString("dd MMMM", mycultureinfot));
-                                break;
-
-                            case "dateend":
-                                mymergefield.Select();
-                                wordapp.Selection.TypeText(certificate.Dateend.ToString("dd MMMM yyyy", mycultureinfot));
-                                break;
-
-                            case "hours":
-                                mymergefield.Select();
-                                wordapp.Selection.TypeText(certificate.Hours);
-                                break;
-
-                            case "date":
-                                mymergefield.Select();
-                                wordapp.Selection.TypeText(certificate.Date.ToString("dd MMMM yyyy", mycultureinfot));
-                                break;
-
-                            case "modality":
-                                mymergefield.Select();
-                                wordapp.Selection.TypeText(certificate.Modality);
-                                break;
-                            default:
-                                break;
                         }
+
+                        else
+                        {
+                            insertedvalue = certificate.Attributes[fieldName];
+                        }
+                        wordapp.Selection.TypeText(insertedvalue);
+                        //switch (fieldName)
+                        //{
+                        //    case "name":
+                        //        mymergefield.Select();
+                        //        wordapp.Selection.TypeText(certificate.Name);
+                        //        break;
+
+                        //    case "course":
+                        //        mymergefield.Select();
+                        //        wordapp.Selection.TypeText(certificate.Course);
+                        //        break;
+
+                        //    case "dateini":
+                        //        mymergefield.Select();
+                        //        wordapp.Selection.TypeText(certificate.Dateini.ToString("dd MMMM", mycultureinfot));
+                        //        break;
+
+                        //    case "dateend":
+                        //        mymergefield.Select();
+                        //        wordapp.Selection.TypeText(certificate.Dateend.ToString("dd MMMM yyyy", mycultureinfot));
+                        //        break;
+
+                        //    case "hours":
+                        //        mymergefield.Select();
+                        //        wordapp.Selection.TypeText(certificate.Hours);
+                        //        break;
+
+                        //    case "date":
+                        //        mymergefield.Select();
+                        //        wordapp.Selection.TypeText(certificate.Date.ToString("dd MMMM yyyy", mycultureinfot));
+                        //        break;
+
+                        //    case "modality":
+                        //        mymergefield.Select();
+                        //        wordapp.Selection.TypeText(certificate.Modality);
+                        //        break;
+                        //    default:
+                        //        break;
+                        //}
 
                     }
 
                 }
                 StringBuilder pdfpathc = new StringBuilder();
-                pdfpathc.AppendFormat(pdfpath + "{0}_{1}.pdf", certificate.Name, prefix);
+                pdfpathc.AppendFormat(pdfpath + "{0}_{1}.pdf", certificate.Attributes["name"], prefix);
                 
                 worddoc.SaveAs(docpath);
                 //wordApp.Documents.Open("C:\\Users\\aquesada\\Proyectos\\.NET\\Project1\\Project1\\doc\\myfile.doc");

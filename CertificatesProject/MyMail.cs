@@ -22,7 +22,7 @@ namespace CertificatesProject
 			Console.WriteLine("Send Certificated...");
 			var message = new MimeMessage();
 			message.From.Add(new MailboxAddress("Tecnofor", parameters.Emailfrom));
-			message.To.Add(new MailboxAddress(certificate.Name, certificate.Email));
+			message.To.Add(new MailboxAddress(certificate.Attributes["name"], certificate.Attributes["email"]));
 
 			string subject = "";
 			string mailpath = "";
@@ -31,20 +31,20 @@ namespace CertificatesProject
 			switch(selectlanguage)
 			{
 				case "2":
-					subject = certificate.Course + " - Attendance certificate";
+					subject = certificate.Attributes["course"] + " - Attendance certificate";
 					mailpath = parameters.Mailpath_eng;
 					certificatepath = certificate.Certificatepathpdf_eng;
 					break;
 				case "1":
 				default:
-					subject = certificate.Course + " - Certificado de asistencia";
+					subject = certificate.Attributes["course"] + " - Certificado de asistencia";
 					mailpath = parameters.Mailpath;
 					certificatepath = certificate.Certificatepathpdf_esp;
 					break;
 			}
 			message.Subject = subject;
 			var builder = new BodyBuilder();
-			builder.HtmlBody = makeHTMLBody(certificate.Course, builder, mailpath, parameters.Imgtecnoforpath, parameters.Imgtwitterpath, parameters.Imglinkedinpath);
+			builder.HtmlBody = makeHTMLBody(certificate.Attributes["course"], builder, mailpath, parameters.Imgtecnoforpath, parameters.Imgtwitterpath, parameters.Imglinkedinpath);
 
 			//builder.Attachments.Add(certificate.Certificatepathpdf_eng);
 			builder.Attachments.Add(certificatepath);

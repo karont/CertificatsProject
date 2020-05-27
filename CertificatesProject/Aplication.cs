@@ -71,7 +71,7 @@ namespace CertificatesProject
                 {
 
 
-                    Console.WriteLine("----" + certificatefail.Name);
+                    Console.WriteLine("----" + certificatefail.Attributes["name"]);
 
                     if (certificatefail.Certificatepathpdf_esp != null &&  certificatefail.Certificatepathpdf_esp != "")
                     {
@@ -97,7 +97,7 @@ namespace CertificatesProject
                 {
 
 
-                    Console.WriteLine("----" + certificatefail.Name);
+                    Console.WriteLine("----" + certificatefail.Attributes["name"]);
 
                 }
             }
